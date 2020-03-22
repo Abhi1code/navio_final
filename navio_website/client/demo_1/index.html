@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Navio | Admin Panel</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/iconfonts/ionicons/css/ionicons.css">
+    <link rel="stylesheet" href="../assets/vendors/iconfonts/typicons/src/font/typicons.css">
+    <link rel="stylesheet" href="../assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="../assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../assets/vendors/css/vendor.bundle.addons.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../assets/css/shared/style.css">
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../assets/css/demo_1/style.css">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="../assets/images/favicon.png" />
+
+    <!-- CSS Elements-->
+    <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+</style>
+
+
+<style type="text/css">
+      body {
+    background-color: ivory;
+}
+#canvas {
+    border: 1px solid red;
+     background-image: url("https://matrixfrats.com/download_api/download/upload/59356305578.png");
+    background-color: #FFFFFF;
+    background-position: center;
+    background-size: 100% 100%;
+}
+    </style>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.2/fabric.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="profile-image">
+                  <img class="img-xs rounded-circle" src="../assets/images/faces/face8.jpg" alt="profile image">
+                  <div class="dot-indicator bg-success"></div>
+                </div>
+                <div class="text-wrapper">
+                  <p class="profile-name">Abhishek Meharia</p>
+                  <p class="designation">Admin</p>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item nav-category">Main Menu</li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Upload plan</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Draw nodes</span>
+                <input type="checkbox" id="check" style="margin: 15px;">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Draw slots</span>
+                <input type="checkbox" id="check1" style="margin: 15px;">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Get Qr code</span>
+                <input type="checkbox" id="check2" style="margin: 15px;">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Get Item</span>
+                <input type="checkbox" id="check3" style="margin: 15px;">
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <!-- Page Title Header Starts-->
+            <div class="row page-title-header">
+              <div class="col-12">
+                <div class="page-header">
+                  <h4 class="page-title">Dashboard</h4>
+                  
+                </div>
+              </div>
+              
+            </div>
+            
+            <div class="row">
+              <div class="col-md-8 grid-margin stretch-card">
+                <div id="user_list">
+                  <center><canvas id="canvas" width=500 height=500></canvas></center>
+                </div>
+
+              <div class="col-md-8 grid-margin stretch-card">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="text" class="form-control" name="data" id="data" placeholder="Data"></br></br>
+                      <button class="btn btn-primary submit-btn btn-block" id="locate">Trace location</button>
+                    </div>
+
+                    <div class="form-group" id="qrdiv">
+                    </br>
+                      <h5 class="page-title" id="qridtext">Id: aammss1</h5></br>
+                      <input type="text" class="form-control" name="qrid" id="qrid" placeholder="Enter Qr id"></br></br>
+                      <button class="btn btn-primary submit-btn btn-block" id="saveqrid">Save</button>
+                    </div>
+                    <div class="form-group" id="itemdiv">
+                    </br>
+                      <h5 class="page-title" id="qritemtext">Items: </h5></br>
+                      <input type="text" class="form-control" name="qritem" id="qritem" placeholder="Enter item"></br></br>
+                      <button class="btn btn-primary submit-btn btn-block" id="addqritem">Add</button>
+                    </div>
+                  </div>
+              </div>
+                
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="../assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="../assets/vendors/js/vendor.bundle.addons.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="../assets/js/shared/off-canvas.js"></script>
+    <script src="../assets/js/shared/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="../assets/js/demo_1/dashboard.js"></script>
+    <!-- End custom js for this page-->
+    <script src="js/socket.js" ></script>
+      
+   <script src="js/canvas.js" ></script>
+  </body>
+</html>
